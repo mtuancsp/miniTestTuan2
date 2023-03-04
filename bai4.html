@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Hàm nhập mảng và tính số lượng phần tử chẵn và tổng các phần tử chẵn
+    function countEven(arr) {
+        let count = 0;
+        let sum = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                count++;
+                sum += arr[i];
+            }
+        }
+
+        return [count, sum];
+    }
+
+    // Hàm kiểm tra số nguyên tố
+    function isPrime(num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+    // Hàm tính tổng các số nguyên tố trong mảng
+    function sumPrime(arr) {
+        let sum = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            if (isPrime(arr[i])) {
+                sum += arr[i];
+            }
+        }
+
+        return sum;
+    }
+
+    // Hàm chính nhập dữ liệu của mảng
+    function main() {
+        let n = parseInt(prompt("Nhập độ dài của mảng:"));
+        let arr = [];
+
+        for (let i = 0; i < n; i++) {
+            let num = parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`));
+            arr.push(num);
+        }
+
+        console.log(arr)
+
+        let [count, evenSum] = countEven(arr);
+        console.log(`Số lượng phần tử chẵn trong mảng là ${count}, tổng các phần tử chẵn là ${evenSum}`);
+
+        let primeSum = sumPrime(arr);
+        console.log(`Tổng các số nguyên tố trong mảng là ${primeSum}`);
+    }
+
+    // Gọi hàm chính
+    main();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Factorial</title>
+</head>
+<body>
+<script>
+
+    let x = +prompt('Nhập số nguyên dương x:');
+    let factorial = 1;
+
+    while (x < 0 || x % 1 !== 0) {
+        x = prompt('Vui lòng nhập số nguyên dương:');
+    }
+
+    for (let i = 1; i <= x; i++) {
+        factorial *= i;
+    }
+
+    alert(x + ' giai thừa = ' + factorial);
+
+</script>
+</body>
+</html>
