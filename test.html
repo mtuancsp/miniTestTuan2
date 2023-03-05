@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 4</title>
+</head>
+<body>
+</body>
+<script>
+
+  result()
+
+
+  function getArrayLength() {
+    let length;
+    length = Number(prompt('nhập độ dài'));
+    console.log('độ dài mảng: ' + length);
+    return length;
+  }
+
+  // getArrayElements(5)
+  function getArrayElements(length) {
+    let arr = [];
+    for (let i = 0; i < length; i++) {
+      let inP = parseInt(prompt('Nhập phần tử thứ ' + i))
+      arr.push(inP)
+    }
+    console.log('thêm phần tử trong mảng ' + arr);
+    // alert('thêm phần tử trong mảng ' + arr);
+    return arr;
+  }
+
+  // getEvenNumbers(array = [5, 6, 7, 3, 3, 5, 8, 3, 2]) test
+  function getEvenNumbers(arr) {
+    let sum = 0;
+    let sumSc = 0
+    let soChan = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 == 0) {
+        console.log(arr[i] + ' là số chẵn')
+        soChan += 1;
+        sumSc = sumSc + arr[i];
+      }
+      sum = sum + arr[i];
+    }
+    console.log('phát hiện ' + soChan + ' số chẵn')
+    console.log('tổng các phần tử trong mảng = ' + sum)
+    console.log('tổng các số chẵn trong mảng = ' + sumSc)
+    return sum;
+  }
+  /*// isPrimeNumber()
+  function isPrimeNumber(number) {
+      // let array = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+      let array = array[number];
+      let sNT = 0;
+      let sum = 0;
+      for (let i = 0; i < array.length; i++) { // lặp từ 0 - 11 bởi vì có 11 index
+          if (array[i] % 2 == 0){
+              console.log(array[i] + ' không phải là số nguyên tố');
+          } else if (array[i] % 2 !== 0){
+              sNT = array[i];
+              sum = sum + array[i];
+          }
+      }
+      console.log('Tổng các số nguyên tố có trong mảng = ' + sum);
+  }*/
+
+
+  function isPrimeNumber(number) {
+    if (number < 2) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function getSumOfPrimeNumbers(arr) {
+    let sum = 0;
+    arr.forEach(function(element) {
+      if (isPrimeNumber(element)) {
+        sum += element;
+      }
+    });
+    console.log(`Tổng các số nguyên tố trong mảng: ` + sum);
+    return sum;
+  }
+
+  //kết quả
+  function result() {
+    let length = getArrayLength()
+    let arr = getArrayElements(length);
+    let evenNumbersResult = getEvenNumbers(arr);
+    let sumOfPrimeNumbers = getSumOfPrimeNumbers(arr);
+  }
+</script>
+</html>
